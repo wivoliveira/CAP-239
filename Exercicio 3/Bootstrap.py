@@ -28,6 +28,8 @@ Python: 3.7.3
 import numpy as np
 import pylab as plt
 
+#---------------------------------Bootstrap------------------------------------
+
 # Definição do mínimo e máximo de cada tipo de região 
 #       [Irregulares, Espirais, Elípticas]
 tipos = [(1.97, 1.99),(1.96, 1.98),(1.92, 1.96)]
@@ -42,6 +44,8 @@ for i in range(0,10):
     data.append(x)
 
 np.savetxt("data.csv", np.transpose(data), delimiter = ",")
+
+#------------------------------------------------------------------------------
 
 # Estatísticas 
 med = []
@@ -58,6 +62,9 @@ for i in range(0,3):
             a = np.power(data[j][k]-med[i], 2)/(2 * np.power(std[i],2))
             results[i,j,k] = 1/(std[i]*np.power(2*np.pi, 1/2)) * np.power(np.e, -a)
            
+
+# EXERCÍCIO INCOMPLETO!
+
 #
 #plt.hist(results[0,:,:], bins=4)
 #plt.hist(results[0,0,:])
